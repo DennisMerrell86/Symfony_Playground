@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block body_id 'matrix-home' %}
+{% block body %}
+    <div class="matrix-home-container">
+        <div class="matrix-home-header">
+            <h3>
+                You take the blue pill, the story ends, you wake up in your bed and believe whatever you want to believe.<br><br>
+                You take the red pill, you stay in Wonderland, and I show you how deep the rabbit hole goes.
+            </h3>
+        </div>
+        
+        <div class="matrix-pill-container">
+            <a class="matrix-pill-btn blue-pill" href="https://stackoverflow.com/users/643112/mezz">
+                <twig:ux:icon name="tabler:lock"/> Take the blue pill
+            </a>
+            <a class="matrix-pill-btn red-pill" href="{{ path('matrix_animation') }}">
+                <twig:ux:icon name="tabler:lock-open"/> Take the red pill
+            </a>
+        </div>
+    </div>
+{% endblock %}

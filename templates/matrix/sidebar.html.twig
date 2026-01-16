@@ -1,0 +1,42 @@
+    {% block sidebar %}
+    <!-- Fixed Sidebar Navigation -->
+    <nav class="matrix-sidebar">
+        <div class="matrix-sidebar-header">
+            <h2 class="matrix-sidebar-title">MATRIX</h2>
+            <div class="matrix-sidebar-divider"></div>
+        </div>
+        
+        <ul class="matrix-sidebar-nav">
+            <li>
+                <a href="{{ path('homepage') }}">
+                    <span>▸</span> Back to Reality
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('matrix_animation') }}" class="active">
+                    <span>▸</span> Canvas Animation
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_index') }}">
+                    <span>▸</span> Custom CMS
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('matrix_animation') }}">
+                    <span>▸</span> Mistral Ollama
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('matrix_animation') }}">
+                    <span>▸</span> API Doc
+                </a>
+            </li>
+        </ul>
+        
+        <div class="matrix-sidebar-footer">
+            <div class="matrix-sidebar-divider" style="margin-bottom: 20px;"></div>
+            <p class="matrix-sidebar-footer-text">Wake up, Neo...</p>
+        </div>
+    </nav>
+    {% endblock %}

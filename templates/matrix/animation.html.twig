@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body_id 'matrix' %}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block body %}
+    {% include 'matrix/sidebar.html.twig' %}
+    <div class="matrix-controls">
+        <label for="speedSlider" class="matrix-controls-label">
+            Animation Speed: <span id="speedValue">33</span>ms
+        </label>
+        <input type="range" id="speedSlider" min="10" max="100" value="33" step="1" 
+           autocomplete="off" class="matrix-controls-slider">
+        <button id="stopButton" class="matrix-controls-btn">
+            Stop Animation
+        </button>
+    </div>
+    <div class="matrix-background">
+        {% include 'matrix/canvas.html.twig' %}
+    </div>
+{% endblock %}

@@ -15,7 +15,7 @@ homepage:
     path: /{_locale}
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
     defaults:
-        template: default/homepage.html.twig
+        template: matrix/matrix.html.twig
         _locale: '%app.locale%'
 
 controllers:

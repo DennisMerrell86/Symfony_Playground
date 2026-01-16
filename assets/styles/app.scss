@@ -119,6 +119,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 body:not(#homepage) {
   padding-top: 110px
 }
@@ -505,4 +506,260 @@ body#blog_search article.post {
 body#blog_search .post-metadata {
   font-size: 16px;
   margin-bottom: 8px;
+}
+
+/* Matrix Animation Styles
+   ------------------------------------------------------------------------- */
+
+#matrix {
+  background-color: black;
+}
+
+.matrix-background {
+  position: fixed; /* Fixed canvas position */
+  z-index: -1; /* Stay behind other elements */
+  top: 0; /* Stay at the top (ignore container padding/margins) */
+  left: 0; /* Stay on the left (ignore container padding/margins) */
+  background-color: black; /* well, it's Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden; /* Disable vertical scroll */
+}
+
+.matrix-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid #0f0;
+  z-index: 100;
+  padding: 30px 0;
+  box-shadow: 2px 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.matrix-sidebar-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.matrix-sidebar-title {
+  color: #0f0;
+  font-family: monospace;
+  font-size: 24px;
+  margin: 0;
+  text-shadow: 0 0 10px #0f0;
+}
+
+.matrix-sidebar-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #0f0, transparent);
+  margin-top: 10px;
+}
+
+.matrix-sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.matrix-sidebar-nav li {
+  margin: 0;
+}
+
+.matrix-sidebar-nav a {
+  display: block;
+  color: #0f0;
+  text-decoration: none;
+  padding: 15px 25px;
+  font-family: monospace;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    background: rgba(0, 255, 0, 0.05);
+    border-left-color: #0f0;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  &.active {
+    border-left-color: #0f0;
+    background: rgba(0, 255, 0, 0.1);
+  }
+}
+
+.matrix-sidebar-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding: 0 25px;
+}
+
+.matrix-sidebar-footer-text {
+  color: #0f0;
+  font-family: monospace;
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+  opacity: 0.7;
+}
+
+.matrix-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.matrix-controls-label {
+  color: #0f0;
+  font-family: monospace;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.matrix-controls-slider {
+  width: 200px;
+  cursor: pointer;
+}
+
+.matrix-controls-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background: #0f0;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 10px #0f0;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Matrix Home Page Styles
+   ------------------------------------------------------------------------- */
+html:has(body#matrix-home),
+body#matrix-home {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body#matrix-home {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .container,
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.matrix-home-container {
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 20px;
+}
+
+.matrix-home-header {
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  margin-bottom: 60px;
+  animation: matrix-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes matrix-glow {
+  from {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  }
+}
+
+.matrix-pill-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.matrix-pill-btn {
+  padding: 20px 40px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 250px;
+  justify-content: center;
+
+  &.blue-pill {
+    background: linear-gradient(135deg, #0066cc, #004499);
+    border-color: #0088ff;
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(135deg, #0088ff, #0066cc);
+      box-shadow: 0 0 30px rgba(0, 136, 255, 0.6);
+      transform: translateY(-3px) scale(1.05);
+      color: #fff;
+    }
+  }
+
+  &.red-pill {
+    background: linear-gradient(135deg, #cc0000, #990000);
+    border-color: #ff0000;
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+      transform: translateY(-3px) scale(1.05);
+      color: #fff;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+  }
 }
